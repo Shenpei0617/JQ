@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0927-text-html</title>
+</head>
+<style>
+    span {
+        color: lightsalmon;
+
+    }
+</style>
+
+<body>
+    <h1 class="sample">Hello<span>World</span></h1>
+    <h1 class="result1"></h1>
+    <h1 class="result2"></h1>
+    <h1 class="result3"></h1>
+    <h1 class="result4"></h1>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $('.result1').text($('.sample').text());
+        //.text只複製純文字
+        $('.result2').html($('.sample').html());
+        //.html連css樣式一起
+
+        //用JS的方式把變數放到result
+        let result = $('.sample').html();
+        $('.result4').html(result);
+    </script>
+
+</body>
+
+</html>

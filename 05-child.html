@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0927-child</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="wrap1">
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <div class="box">box3</div>
+        <div class="box">box4</div>
+        <div class="box">box5</div>
+        <div class="box">box6</div>
+        <div class="box">box7</div>
+        <div class="box">box8</div>
+        <div class="box">box9</div>
+        <div class="box">box10</div>
+        <div class="box">box11</div>
+        <div class="box">box12</div>
+    </div>
+    <div class="wrap2 ">
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <div class="box">box3</div>
+        <div class="box">box4</div>
+        <div class="box">box5</div>
+        <div class="box">box6</div>
+        <div class="box">box7</div>
+        <div class="box">box8</div>
+        <div class="box">box9</div>
+        <div class="box">box10</div>
+        <div class="box">box11</div>
+        <div class="box">box12</div>
+    </div>
+    <div class="wrap3">
+        <span>span1</span>
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <div class="box">box3</div>
+        <div class="box">box4</div>
+        <h5 class="box">box5</h5>
+            <div class="box">box6</div>
+            <div class="box">box7</div>
+            <div class="box">box8</div>
+            <h5 class="box">box9</h5>
+            <div class="box">box10</div>
+            <div class="box">box11</div>
+            <div class="box">box12</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        //注意父層和子層的關係
+        // $('.box:first-child').css('background', 'coral')
+        // $('.box:last-child').css('background', 'lightgreen')
+
+        //沒用wrap包起來會選到外面的body家族的最後一個，就不會選捯box家族的最後一個box12
+        //有兩個wrap就會一起選第一個或最後一個小孩
+        // 但wrap3加了span為第一,讓box1不再是第一個小孩，所以會選不到
+        // (但一般不會這樣做，結構盡量保持一致)
+         $('.box:first-of-type').css('background', 'plum')
+        //選取同類第一個(選box裡面第一個出現的div標籤)
+         $('.box:last-of-type').css('background', 'lightgreen')
+         
+         //選取同類最後一個(選box裡面最後一個出現的div標籤)
+        $('.box:nth-of-type(3)').css('background', 'bisque')
+        //選取這個類型的第n個
+
+
+    </script>
+
+
+</body>
+
+</html>

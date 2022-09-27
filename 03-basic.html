@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <table class="table table-bordered">
+                <tr>
+                    <td>td1</td>
+                    <td>td2</td>
+                    <td>td3</td>
+                    <td>td4</td>
+                    <td>td5</td>
+                </tr>
+                <tr>
+                    <td>td1</td>
+                    <td>td2</td>
+                    <td>td3</td>
+                    <td>td4</td>
+                    <td>td5</td>
+                </tr>
+                <tr>
+                    <td>td1</td>
+                    <td>td2</td>
+                    <td>td3</td>
+                    <td>td4</td>
+                    <td>td5</td>
+                </tr>
+                <tr>
+                    <td>td1</td>
+                    <td>td2</td>
+                    <td>td3</td>
+                    <td>td4</td>
+                    <td>
+                        <h2>td5</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>td1</td>
+                    <td>td2</td>
+                    <td>td3</td>
+                    <td>td4</td>
+                    <td>
+                        <h1>td5</h1>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        // $('td:eq(0)').css('background', 'red')  //選取第 n 個(從0開始計算)
+        $('td:even').css('background', 'bisque') //選取偶數個
+        $('td:odd').css('background', 'coral')  //選取奇數個
+        $('td:first').css('background', 'lightgreen') //選取第一個
+        $('td:last').css('background', 'violet')  //選取最後一個
+        $('td:gt(3)').css('background', 'linen')  //選取大於第 n 個的
+        $('td:lt(10)').css('background', 'salmon')  //選取小於第 n 個的
+        $('td:gt(-3)').css('background', 'honeydew') //選取大於第 n 個的(負值從後面開始)
+        $('td:lt(-5)').css('background', 'plum') //從後面選取小於第 n 個的
+        $(':header').css('background', 'tan') //選取 h1~h6
+
+
+        //有沒有加:的差別
+        //1.冒號前面沒給任何HTML的名詞代表選取所有
+        //2.沒有:代表選擇HTML的語法
+
+
+    </script>
+</body>
+
+</html>

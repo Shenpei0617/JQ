@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0927-tree-traveral.html</title>
+</head>
+
+<body>
+    <ul class="level-1">
+        <li class="item-1">item-1</li>
+        <li class="item-2">item-2
+            <ul class="level-2">
+                <li class="item-01">item-01</li>
+                <li class="item-02">item-02
+                    <ul class="level-3">
+                        <li class="item-001">item-001</li>
+                        <li class="item-002">item-002</li>
+                        <li class="item-003">item-003</li>
+                    </ul>
+                </li>
+                <li class="item-03">item-03</li>
+            </ul>
+        </li>
+        <li class="item-3">item-3</li>
+    </ul>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        // $(".level-1").children().css("outline","solid 1px coral");
+        //選到.level-1的小孩item-1、item-2、item-3
+        
+        // $(".level-1").find("li").css("outline", "solid 1px lightgreen");
+        //選到.level-1下面的所有li
+        
+        // $(".level-1").find(".level-3").css("outline", "solid 1px coral");
+        //找到.level-1下面.level-3
+        
+        // $(".level-3").parent().css("outline", "solid 1px coral");
+        //.parent()往上選取一層，.level-3的父層item-02
+        
+        // $(".item-001").closest(".level-3").css("outline", "solid 1px coral");
+        //.closest()往上選最接近直系血親元素，.item-001的父層.level-3
+        
+        // $(".level-3").parents().css("outline", "solid 1px coral");
+        //.parents()往上選取全部
+        
+        // $(".level-3").parentsUntil(".item-2").css("outline", "solid 1px coral");
+        //往上選取全部並設定停止的元素，選.level-3全部，到.item-2為止
+
+        $(".item-001").next().css("outline", "solid 1px coral");
+        //.next()只能選同一層的旁邊(兄弟姊妹)不能選父層或子層
+
+    </script>
+</body>
+
+</html>

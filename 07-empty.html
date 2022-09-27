@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0927-empty</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+    <table class="table empty">
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td></td>
+                <td>3</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script>
+    $(".empty td:empty").css("background", "yellow");
+    //:empty- 選取內容為空的元素(空白建不是空元素)
+    //.empty td:empty  選class裡的empty (空格)再選取
+</script>
+
+</body>
+
+</html>
