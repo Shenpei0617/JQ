@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0928-attr</title>
+</head>
+
+<body>
+    <img src="./images/1.png" alt="">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $('img').attr('src', './images/2.png');
+        //用attr更改圖片路徑
+
+        console.log($('img').attr('src'))
+        //取得圖片的路徑
+
+        $('img').attr({ 'src': './images/1.pn', 'alt': 'frog' })
+        //alt的值(替代方案)，若src的路徑不對，則會成ait設定的文字
+
+        //JS和JQ的語法不能混用
+        const jsImg = document.querySelector('img');
+        console.log($('jsImg').attr('src'));
+        //JS轉JQ
+         // $('img')[0].style.width = '50px';
+    </script>
+</body>
+
+</html>
