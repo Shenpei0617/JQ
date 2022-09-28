@@ -32,27 +32,47 @@
     <script>
         // $(".level-1").children().css("outline","solid 1px coral");
         //選到.level-1的小孩item-1、item-2、item-3
-        
+
         // $(".level-1").find("li").css("outline", "solid 1px lightgreen");
         //選到.level-1下面的所有li
-        
+
         // $(".level-1").find(".level-3").css("outline", "solid 1px coral");
         //找到.level-1下面.level-3
-        
+
         // $(".level-3").parent().css("outline", "solid 1px coral");
         //.parent()往上選取一層，.level-3的父層item-02
-        
+
         // $(".item-001").closest(".level-3").css("outline", "solid 1px coral");
         //.closest()往上選最接近直系血親元素，.item-001的父層.level-3
-        
+
         // $(".level-3").parents().css("outline", "solid 1px coral");
         //.parents()往上選取全部
-        
+
         // $(".level-3").parentsUntil(".item-2").css("outline", "solid 1px coral");
         //往上選取全部並設定停止的元素，選.level-3全部，到.item-2為止
 
         $(".item-001").next().css("outline", "solid 1px coral");
         //.next()只能選同一層的旁邊(兄弟姊妹)不能選父層或子層
+
+
+       
+    
+        //
+        //取li裡面的文字(用JS寫)
+        const lis = document.querySelectorAll('li');
+        
+        // lis.forEach(function (element) {
+        //     element.addEventListener('click', function (e) {
+        //         e.stopPropagation();
+        //         console.log('lis');
+        //     })
+        // })
+
+        //取li裡面的文字(用JQ綁定)
+        $('li').click(function(e){
+            e.stopPropagation();
+            console.log('lis',$(e.currentTarget).text());
+        })
 
     </script>
 </body>
