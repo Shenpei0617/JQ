@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>0927-text-html</title>
+    <title>0927-text</title>
 </head>
 <style>
     span {
@@ -32,6 +32,14 @@
         //用JS的方式把變數放到result
         let result = $('.sample').html();
         $('.result4').html(result);
+
+        //0928補充 1.對太多li用.text()  2.html()和text()混用
+
+        $('li').each((index, item) => {
+            // console.log('index', index);
+            // console.log('item', item);
+            console.log('item text:', $(item).text());
+        })
     </script>
 
 </body>
