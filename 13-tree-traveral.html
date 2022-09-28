@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>0927-tree-traveral.html</title>
+    <title>0927-tree-traveral</title>
 </head>
 
 <body>
@@ -55,12 +55,12 @@
         //.next()只能選同一層的旁邊(兄弟姊妹)不能選父層或子層
 
 
-       
-    
-        //
+
+
+        //0928補充
         //取li裡面的文字(用JS寫)
         const lis = document.querySelectorAll('li');
-        
+
         // lis.forEach(function (element) {
         //     element.addEventListener('click', function (e) {
         //         e.stopPropagation();
@@ -69,9 +69,9 @@
         // })
 
         //取li裡面的文字(用JQ綁定)
-        $('li').click(function(e){
+        $('li').click(function (e) {
             e.stopPropagation();
-            console.log('lis',$(e.currentTarget).text());
+            console.log('lis', $(e.currentTarget).text());
         })
 
     </script>
