@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0929-ex6輪播牆</title>
+</head>
+<style>
+    .wrap {
+        width: 800px;
+        height: 500px;
+        /* background:rgb(255, 152, 152); */
+        overflow: hidden;
+        position: relative;
+    }
+
+    .train {
+        display: flex;
+        width: 500%;
+        list-style: none;
+        padding-left: 0;
+        transform: translateX(0px);
+    }
+
+    .train li img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .slider-dots {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding-left: 0;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    .slider-dots li {
+        width: 40px;
+        height: 10px;
+        border: 1px solid #fff;
+        margin: 0 4px;
+    }
+
+    .slider-dots li:nth-child(1) {
+        background-color: #fff;
+    }
+</style>
+
+<body>
+    <div class="wrap">
+        <ul class="train">
+            <li><img src="/images/background1.jpg" alt=""></li>
+            <li><img src="/images/background2.jpg" alt=""></li>
+            <li><img src="/images/background3.jpg" alt=""></li>
+            <li><img src="/images/background4.jpg" alt=""></li>
+            <li><img src="/images/background5.jpg" alt=""></li>
+        </ul>
+        <ul class="slider-dots">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $('.slider-dots li').click(function () {
+            console.log('li ckick', $(this).index());
+            let index = $(this).index();
+            let moveX = index * -800;
+
+            //點到的index移動到train的index * -800
+            $('.train').css('transform', `translateX(${moveX}px)`);
+            //$(this)當方形點到的時候變白色,siblings()其他方形透明
+            $(this).css('background', '#fff').siblings().css("background", "transparent");
+
+
+
+
+
+            //多步驟方法
+            // if (index == 1) {
+            //     $('.train').css('transform', 'translateX(-800px)');
+
+            // }
+
+        })
+
+
+
+    </script>
+</body>
+
+</html>
