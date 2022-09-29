@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0929-ex7地區選擇</title>
+</head>
+
+<body>
+    <form action="">
+        <select name="city" id="city">
+            <option value="0">基隆市</option>
+            <option value="1">台北市</option>
+            <option value="2">新北市</option>
+        </select>
+        <select name="district" id="district">
+            <option value="0">中正</option>
+            <option value="1">七堵</option>
+            <option value="2">暖暖</option>
+        </select>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        let districtArray = [
+            ['七堵', '中正', '暖暖'],
+            ['中正', '大安', '信義'],
+            ['蘆洲', '三重', '新店'],
+        ];
+
+        //[todo:] 使用者修改了城市的下拉式選單，就把區域的選單改成該城市的區域們
+        //取城市的名代表值  $(this).val()
+        //取陣列裡面的城市們 districtArray[cityValue]
+        //當選到城市的下拉選單，區域的選單會顯示城市的所有區域
+        //修改下拉式選單裡的選項
+        $('#city').change(function () {
+            let cityValue = $(this).val();
+            let districtValue = districtArray[cityValue];
+            // console.log('city change', cityValue);
+            // console.log(districtValue);
+
+            //簡潔的方法：迴圈
+            $('#district').empty();
+            for (let i = 0; i < districtValue.length; i++) {
+                $('#district').append(`<option value="${i}">${districtValue[i]}</option>`)
+            }
+
+
+
+
+
+            //方法一.append()
+            // $('#district').empty();
+            // //.empty()清空預選的陣列
+            // $('#district').append(`<option value="0">${districtValue[0]}</option>`)
+            // $('#district').append(`<option value="0">${districtValue[1]}</option>`)
+            // $('#district').append(`<option value="0">${districtValue[2]}</option>`)
+            //districtValue[0]顯示陣列裡面代表0的所有區域
+
+            //方法二.eq(0).text字串替換
+            // $('#district option').eq(0).text(`${thisDistrictArr[0]}`)
+            // $('#district option').eq(1).text(`${thisDistrictArr[1]}`)
+            // $('#district option').eq(2).text(`${thisDistrictArr[2]}`)
+        })
+
+    </script>
+</body>
+
+</html>
