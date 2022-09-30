@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0930-on1</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <button>button</button>
+        <div class="row">
+            <ul>
+                <!-- prepend -->
+                <li>iteam1</li>
+                <li>iteam2</li>
+                <!-- .append -->
+
+            </ul>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        //原本案button新增的iteam
+        let x = 4
+        $('button').click(function () {
+            $('ul').append('<li>iteam ' + x + '</li>');
+            x = x + 1
+        })
+        //邦定子截點
+        $('ul').on('click','li',function(){
+            console.log($(this).text());
+        })
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0930-off</title>
+</head>
+
+<body>
+    <button id="sayHi">sayHi</button>
+    <button id="on">on</button>
+    <button id="off">off</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        //錯誤寫法
+        // $('#on').click(function () {
+        //     $('#sayHi').click(function () {
+        //         console.log('hi')
+        //     })
+        // })
+        // $('#off').click(function () {
+        //     console.log('off click');
+        //     $('sayHi').off('click', 'sayHiHi');
+        // })
+
+        let sayHi = function () {
+            console.log('Hi');
+        };
+        $('#on').click(function () {
+            $('#sayHi').on('click', sayHi)
+        })
+        //等於錯誤寫法的第一段
+        $('#off').click(function () {
+            console.log('off click');
+            $('#sayHi').off('click', sayHi)
+        })
+
+    </script>
+</body>
+
+</html>
