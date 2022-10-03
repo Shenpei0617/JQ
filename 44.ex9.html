@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1003-ex9</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .wrap {
+            width: 800px;
+            height: 400px;
+            background-color: #ccc;
+            position: relative;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightcoral;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: .5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="wrap mx-auto">
+                <div class="box"></div>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-12 text-center">
+                <button id="btnUp" class="btn btn-info ">
+                    <i class="fa-solid fa-caret-up"></i>
+                </button>
+            </div>
+            <div class="col-12 text-center">
+                <button id="btnLeft" class="btn btn-info mx-3">
+                    <i class="fa-solid fa-caret-left"></i>
+                </button>
+
+                <button id="btnRight" class="btn btn-info mx-3">
+                    <i class="fa-solid fa-caret-right"></i>
+                </button>
+            </div>
+            <div class="col-12 text-center">
+                <button id="btnDown" class="btn btn-info">
+                    <i class="fa-solid fa-caret-down"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        let boxLeft = parseInt($('.box').css('left'));
+        let index = 0;
+        let spped = 10;
+        let myInterval = null;
+        let minLeft = 0;
+        function startInterval() {
+            myInterval = setInterval(() => {
+                //console.log('boxLeft:', boxLeft);
+                boxLeft += 10;
+                moveRight(boxLeft);
+            }, 100);
+        }
+        function stopInterval() {
+            clearInterval(myInterval);
+        }
+        //setInterval，clearInterval讓box持續移動
+
+
+        function moveRight(boxLeft) {
+            let maxLeft = $('.wrap').width() - $('.box').width();
+            //設定向右移的最大移動量=wrap的寬-box的寬(-$('.box').width()起始點)
+            //console.log('maxLeft:', maxLeft);
+            if (parseInt($('.box').css('left')) < maxLeft) {
+                $('.box').css('left', boxLeft)
+                //+=100改成boxLeft
+            }
+            //修改box與左邊界的距離，當box與左邊界的距離大於最大移動量就不再移動，不然移動一步就是加100
+        }
+        $('#btnRight').mousedown(startInterval)
+        $('#btnRight').mouseup(stopInterval)
+
+        $('#btnRight').click(moveRight);
+        function moveleft() {
+            // console.log('btnRight clicked', $('.box').css('left'));
+
+            // const maxLeft = $('.wrap').width() - $('.box').width();
+            // console.log('maxLeft:', maxLeft);
+            if (parseInt($('.box').css('left')) > 0) { $('.box').css('left', '-=100'); }
+        }
+        $('#btnLeft').click(moveleft)
+
+        //keyCode用鍵盤移動
+        $(document).on('keydown', function (e) {
+           // console.log('keydown:', e.keyCode);
+            if (e.keyCode === 39) {
+                moveRight();
+            }
+            //39=鍵盤右鍵
+            if (e.keyCode === 37) {
+                moveleft()
+            }
+            //37=鍵盤左鍵
+        })
+    </script>
+
+
+</body>
+
+</html>
