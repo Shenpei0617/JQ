@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1003-addClass</title>
+</head>
+<style>
+    .box {
+        height: 300px;
+        width: 300px;
+        background-color: bisque;
+
+    }
+
+    /* 先定義一個要加在box的新樣式 */
+    .box.changcolor {
+        background-color: lightgreen;
+    }
+
+    /* 注意結構權重問題，.changcolor若放在.box的上面，就不會執行addclass，但前面有加原本的.box不管樣式放在哪都可以執行 */
+</style>
+
+<body>
+    <button class="add">add</button>
+    <button class="remove">remove</button>
+    <button class="toggle">toggle</button>
+    <button class="toggle">has</button>
+    <div class="box"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $('.add').click(function () {
+            $('.box').addClass('changcolor');
+        })
+        //.addClass新增class樣式
+        $('.remove').click(function () {
+            $('.box').removeClass('changcolor');
+        })
+        //removeClass移除class
+        $('.toggle').click(function () {
+            $('.box').toggleClass('changcolor');
+        })
+        //動態切換class
+        $('.has').click(function () {
+            $('.box').hasClass('changcolor');
+            console.log('btnHas clicked', $('.box').hasClass('changcolor'));
+            if ($('.box').hasClass('changcolor')) {
+                $('.box').removeClass('changcolor')
+            }
+            else {
+                $('.box').addClass('changcolor');
+            }
+        })
+        //判斷是否有某個class
+    </script>
+
+</body>
+
+</html>
