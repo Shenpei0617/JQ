@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1004-width</title>
+</head>
+<style>
+    .box {
+        width: 200px;
+        height: 300px;
+        padding: 10px;
+        border: 20px solid lightgreen;
+        margin: 30px;
+        background-color: sandybrown;
+
+    }
+</style>
+
+<body>
+    <div class="box"></div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        //設置或取得元素的寬高，括號內放值可自訂寬高 
+        console.log('width:', $('.box').width());
+        console.log('height:', $('.box').height());
+
+        //取得元素的寬度（含 padding） 
+        console.log('innerWidth:', $('.box').innerWidth());
+        console.log('innerHeight:', $('.box').innerHeight());
+
+        //取得元素的寬度（包含 padding 和 border）
+        console.log('outerWidth:', $('.box').outerWidth());
+        console.log('outerHeight:', $('.box').outerHeight());
+
+        //括號內加入true就包含margin
+        console.log('outerWidth with margin:', $('.box').outerWidth(true));
+        console.log('outerHeight with margin:', $('.box').outerHeight(true));
+    </script>
+</body>
+
+</html>
