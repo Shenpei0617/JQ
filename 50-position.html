@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1005-position</title>
+</head>
+<style>
+    body {
+        margin: 20px;
+    }
+
+    .wrap {
+        width: 500px;
+        height: 500px;
+        background-color: bisque;
+    }
+
+    .box1 {
+        width: 350px;
+        height: 350px;
+        margin: 30px;
+        padding: 10px;
+        background-color: lightsalmon;
+        position: fixed;
+    }
+</style>
+
+<body>
+    <div class="wrap">
+        <div class="box1">
+            <div class="box2"></div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        //查看box位置
+        console.log('box1 position', $('.box1').position());
+    </script>
+</body>
+
+</html>
