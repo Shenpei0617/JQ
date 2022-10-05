@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1005-ad-scroll</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        section {
+            height: 100vh;
+        }
+
+        .Section3 {
+            height: 300vh;
+        }
+
+        .ad-row {
+            position: sticky;
+            top: 0;
+        }
+
+        .ad-imgs-wrap {
+            position: absolute;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .ad-imgs-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ad2,
+        .ad3 {
+            transform-origin: 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    section.section$.autobg{section$}*6
+    <section class="section1 autobg">section1</section>
+    <section class="section2 autobg">section2</section>
+    <section class="section3 autobg">
+        <div class="ad-imgs-wrap ad1">
+            <img src="./images/background1.jpg" alt="">
+        </div>
+        <div class="ad-imgs-wrap ad2">
+            <img src="./images/background2.jpg" alt="">
+        </div>
+        <div class="ad-imgs-wrap ad3">
+            <img src="./images/background3.jpg" alt="">
+        </div>
+    </section>
+    <section class="section4 autobg">section4</section>
+    <section class="section5 autobg">section5</section>
+    <section class="section6 autobg">section6</section>
+
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+        }
+
+        function getRBGA() {
+            return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+        }
+
+        const elements = document.querySelectorAll('.autobg');
+
+        Array.from(elements).forEach((element, index) => {
+            element.style.backgroundImage = getRBGA();
+        });
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $(window).scroll(function () {
+            let originalAdImTop = $('.section3').offset().top;
+            let nowScroll = $(window).scrollTop();
+            let windowHeight = $(window).height();
+
+            if (nowScroll <= originalAdImTop) {
+                let percenttage = 0;
+                let tranX = -120 * percenttage;
+                let tranY = -50 * percenttage;
+                let rotateDeg = 20 * percenttage;
+                $('.ad3').css('transform', `translate(${tranX}%, ${tranY}%) rotate(${rotateDeg}deg)`)
+            }
+
+
+
+            if (nowScroll > originalAdImTop) {
+                let percenttage = (nowScroll - originalAdImTop) / windowHeight;
+                let tranX = -120 * percenttage;
+                let tranY = -50 * percenttage;
+                let rotateDeg = 20 * percenttage;
+                $('.ad3').css('transform', `translate(${tranX}%, ${tranY}%) rotate(${rotateDeg}deg)`)
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>
