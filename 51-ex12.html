@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1005-ex12-scroll to fixed</title>
+</head>
+<style>
+    /* 製作捲動到一定超過選單高度時，選單會貼到畫面頂端 */
+
+    /* position:sticky的效果和
+    scroll to fixed一樣 */
+    body {
+        margin: 0;
+    }
+
+    .banner {
+        width: 100%;
+        height: 200px;
+        background-color: lightgreen;
+    }
+
+    .nav {
+        width: 100%;
+        height: 50px;
+        background-color: bisque;
+    }
+
+    .nav.fixed {
+        position: fixed;
+        top: 0;
+    }
+
+    .text {
+        width: 100%;
+        height: 1000vh;
+
+    }
+</style>
+
+<body>
+    <div class="banner"></div>
+    <div class="nav "></div>
+    <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae magni quasi omnis quas,
+        deleniti, quod quibusdam ipsam cupiditate quo impedit maxime deserunt a possimus cumque. Autem voluptatem
+        laboriosam facilis ab.</div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        let scrollTop = $('.nav').offset().top;
+        //另 scrollTop = nav離網頁上面的距離
+        //把$('.nav').offset().top放在全域變數儲存，Top的數值才不會跟著Flex改變
+        //fixed會跟著scroll bar的位置釘選，所以位置會一直改變，.offset().top的數值會跟fixe一起改變
+        console.log('window scrolltop', $(window).scrollTop());
+        $(window).scroll(function () {
+            let newScroll = $(window).scrollTop();
+
+            if (newScroll >= scrollTop) {
+                $('.nav').addClass('fixed')
+            }
+            else {
+                $('.nav').removeClass('fixed')
+
+            }
+        })
+    </script>
+</body>
+
+</html>
