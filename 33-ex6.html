@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>0929-ex6輪播牆</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
 </head>
 <style>
     .wrap {
@@ -50,6 +54,7 @@
     .slider-dots li:nth-child(1) {
         background-color: #fff;
     }
+
 </style>
 
 <body>
@@ -68,7 +73,6 @@
             <li></li>
             <li></li>
         </ul>
-
     </div>
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
@@ -82,9 +86,6 @@
             $('.train').css('transform', `translateX(${moveX}px)`);
             //$(this)當方形點到的時候變白色,siblings()其他方形透明
             $(this).css('background', '#fff').siblings().css("background", "transparent");
-
-
-
 
 
             //多步驟方法

@@ -55,7 +55,7 @@
         background-color: #fff;
     }
 
-    /* 1005-加入左右按鈕無限輪播 */
+    /* 1005-加入左右按鈕 */
 
     .page-left,
     .page-right {
@@ -120,27 +120,29 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script>
+        let nowPage = 0;
         $('.slider-dots li').click(function () {
             console.log('li ckick', $(this).index());
-            let index = 
-            let moveX = index * -800;
 
-            //點到的index移動到train的index * -800
+            nowPage = $(this).index();
+            pageMovement(nowPage);
+
+
+        })
+
+        $('.page-right').click(function () {
+            nowPage++;
+            if (nowPage >= 5) nowPage = 0;
+
+            pageMovement(nowPage)
+        })
+
+        function pageMovement(nowPage) {
+            const moveX = nowPage * -800;
+
             $('.train').css('transform', `translateX(${moveX}px)`);
-            //$(this)當方形點到的時候變白色,siblings()其他方形透明
-            $(this).css('background', '#fff').siblings().css("background", "transparent");
-            //多步驟方法
-            // if (index == 1) {
-            //     $('.train').css('transform', 'translateX(-800px)');
-
-            // }
-
-        })
-        let newPage = 0;
-        $('.page-right').click(function(){
-            let newpage = $(this).index();
-            pageMove 
-        })
+            $('.slider-dots li').eq(nowPage).css('background', '#fff').siblings().css("background", "transparent");
+        }
 
 
 
