@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1006-animation</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+    <div class="box"></div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <!-- 使用JQ的動畫效果必須先引入jquery.color-2.1.2.js -->
+    <script>
+
+        // .animate()- 建立自定義動畫
+        $("#start").click(function () {
+            $("div").animate({ width: '500px', opacity: '0.5', backgroundColor: '#aaf', })
+                .animate({ width: '200px', opacity: '1', backgroundColor: '#ffa' });
+        });
+
+        // stop()- 在完成動畫之前停止效果
+        // $(selector).stop(stopAll,goToEnd); 預設為 false
+        $("#stop").click(function () {
+            $('div').stop(true, true);
+        });
+        $("#stop").click(function () {
+            $('div').stop(true, flase);
+        });
+
+    </script>
+
+</body>
+
+</html>
