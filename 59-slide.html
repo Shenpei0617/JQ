@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1006-slide</title>
+    <!-- 滑動 -->
+</head>
+<style>
+    .box {
+        height: 100px;
+        width: 100px;
+        background-color: coral;
+    }
+</style>
+
+<body>
+    <button>click</button>
+    <div class="box"></div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $("button").click(function () {
+            $("div.box").slideToggle(1000);
+        });
+
+    </script>
+
+</body>
+
+</html>
